@@ -1,5 +1,5 @@
 import express from "express";
-require('dotenv').config()
+require("dotenv").config();
 //Tạo server với express
 var app = express();
 app.get("/", (req, res) => {
@@ -31,8 +31,7 @@ app.post("/webhook", (req, res) => {
 });
 // Add support for GET requests to our webhook
 app.get("/messaging-webhook", (req, res) => {
-const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
-
+  const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
   // Parse the query params
   let mode = req.query["hub.mode"];
@@ -52,6 +51,7 @@ const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
     }
   }
 });
-// Khởi tạo server tại port 4000
-app.listen(5000);
-console.log("Running server at http://localhost:5000");
+// Khởi tạo server tại port 5000
+const PORT = process.env.PORT || 8080;
+app.listen(PORT);
+console.log(`Running server at http://localhost:${PORT}`);
