@@ -3,7 +3,7 @@ import express from "express";
 //Tạo server với express
 var app = express();
 app.get("/", (req, res) => {
-  res.send("Hello, world!!!!");
+  res.send("Hello, world!!!");
 });
 // Create the endpoint for your webhook
 app.post("/webhook", (req, res) => {
