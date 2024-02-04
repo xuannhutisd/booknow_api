@@ -1,6 +1,6 @@
 import cors from "cors";
 import express from "express";
-
+import bodyParser from "body-parser";
 require("dotenv").config();
 //Tạo server với express
 var app = express();
