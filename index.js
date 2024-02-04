@@ -1,8 +1,9 @@
+import cors from "cors";
 import express from "express";
 require("dotenv").config();
 //Tạo server với express
 var app = express();
-
+app.use(cors());
 const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
