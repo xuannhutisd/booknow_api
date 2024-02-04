@@ -31,7 +31,7 @@ app.post("/webhook", (req, res) => {
 });
 // Add support for GET requests to our webhook
 app.get("/messaging-webhook", (req, res) => {
-const VERIFY_TOKEN = 'ISD_BOOKING_VERIFY_TOKEN';
+const VERIFY_TOKEN = 'ISDBOOKINGVERIFYTOKEN';
 
 
   // Parse the query params
