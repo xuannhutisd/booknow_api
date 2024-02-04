@@ -2,8 +2,11 @@ import express from "express";
 require("dotenv").config();
 //Tạo server với express
 var app = express();
+
+const PORT = process.env.PORT || 5000;
+
 app.get("/", (req, res) => {
-  res.send("Hello, world!!!");
+  res.send("Hello, world!!!", PORT);
 });
 // Create the endpoint for your webhook
 app.post("/webhook", (req, res) => {
@@ -13,7 +16,6 @@ app.post("/webhook", (req, res) => {
   console.dir(body, { depth: null });
 
   // Send a 200 OK response if this is a page webhook
-
   if (body.object === "page") {
     body.entry.forEach(function (entry) {
       let webhook_event = entry.messaging[0];
@@ -51,7 +53,6 @@ app.get("/messaging-webhook", (req, res) => {
     }
   }
 });
-// Khởi tạo server tại port 5000
-const PORT = process.env.PORT || 8080;
+// Khởi tạo server tại port
 app.listen(PORT);
 console.log(`Running server at http://localhost:${PORT}`);
