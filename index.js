@@ -22,13 +22,14 @@ app.post("/webhook", (req, res) => {
   // Send a 200 OK response if this is a page webhook
   if (body.object === "page") {
     body.entry.forEach(function (entry) {
-      // Gets the body of the webhook event
-      let webhook_event = entry.messaging[0];
-      console.log("webhook_event", webhook_event);
+      console.log("entry", entry);
+      // // Gets the body of the webhook event
+      // let webhook_event = entry.messaging[0];
+      // console.log("webhook_event", webhook_event);
 
-      // Get the sender PSID
-      let sender_psid = webhook_event.sender.id;
-      console.log("Sender PSID: " + sender_psid);
+      // // Get the sender PSID
+      // let sender_psid = webhook_event.sender.id;
+      // console.log("Sender PSID: " + sender_psid);
     });
 
     // Returns a '200 OK' response to all requests
