@@ -36,7 +36,7 @@ app.post("/webhook", (req, res) => {
   }
 });
 // Add support for GET requests to our webhook
-app.get("/messaging-webhook", (req, res) => {
+app.get("/webhook", (req, res) => {
   const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
   // Parse the query params
