@@ -17,17 +17,17 @@ app.post("/webhook", (req, res) => {
   let body = req.body;
 
   console.log(`\u{1F7EA} Received webhook:`);
-  console.log('------body', body)
-  console.log('---------req.query', req.query['hub.challenge'])
 
   // Send a 200 OK response if this is a page webhook
   if (body.object === "page") {
     body.entry.forEach(function (entry) {
-      console.log("---------entry", entry);
       // Gets the body of the webhook event
       let webhook_event = entry.messaging[0];
-      console.log("--------webhook_event", webhook_event);
-      console.log("-----entry.messaging", entry.messaging);
+      console.log("--------webhook_event0", webhook_event);
+      console.log("--------webhook_event1", webhook_event.intents);
+      console.log("--------webhook_event2", webhook_event.entities);
+      console.log("--------webhook_event3", webhook_event.traits);
+      console.log("--------webhook_event4", webhook_event.detected_locales);
 
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
