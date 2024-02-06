@@ -17,12 +17,13 @@ app.post("/webhook", (req, res) => {
   let body = req.body;
 
   console.log(`\u{1F7EA} Received webhook:`);
-  console.dir(body, { depth: null });
+  console.log('------body', body)
+  console.log('---------req.query', req.query['hub.challenge'])
 
   // Send a 200 OK response if this is a page webhook
   if (body.object === "page") {
     body.entry.forEach(function (entry) {
-      console.log("entry", entry);
+      console.log("---------entry", entry);
       // // Gets the body of the webhook event
       // let webhook_event = entry.messaging[0];
       // console.log("webhook_event", webhook_event);
