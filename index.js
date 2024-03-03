@@ -15,19 +15,23 @@ app.get("/", (req, res) => {
 // Create the endpoint for your webhook
 app.post("/webhook", (req, res) => {
   let body = req.body;
-
+  console.dir("body", body);
   console.log(`\u{1F7EA} Received webhook:`);
 
   // Send a 200 OK response if this is a page webhook
   if (body.object === "page") {
     body.entry.forEach(function (entry) {
+      console.dir("entry", entry);
       // Gets the body of the webhook event
       let webhook_event = entry.messaging[0];
       console.log("--------webhook_event0", webhook_event);
       console.log("--------webhook_event1", webhook_event?.nlp?.intents);
       console.log("--------webhook_event2", webhook_event?.nlp?.entities);
       console.log("--------webhook_event3", webhook_event?.nlp?.traits);
-      console.log("--------webhook_event4", webhook_event?.nlp?.detected_locales);
+      console.log(
+        "--------webhook_event4",
+        webhook_event?.nlp?.detected_locales
+      );
 
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
